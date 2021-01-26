@@ -1,8 +1,8 @@
 import React from 'react';
 import './PicturesCollection.css';
-import Picture from './Picture/Picture';
+import Article from './Article/Article';
 
 const PicturesCollection = () => {
-return <main className="PicturesCollection"> <Picture/> </main>;
+return <main className="PicturesCollection"> <Article/> </main>;
 }
 export default PicturesCollection;
