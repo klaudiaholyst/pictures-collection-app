@@ -6,5 +6,13 @@
         "Date": "26.01.2021",
         "Place": "XYZ",
         "Tags": "#zachódsłońca #krajobraz"
+    },
+    {
+        "ID": "002", 
+        "Name": "Road by the sea", 
+        "Image": "https://cdn.pixabay.com/photo/2021/01/10/12/00/road-5904909_1280.jpg",
+        "Date": "27.01.2021",
+        "Place": "ZYX",
+        "Tags": "#zachódsłońca"
     }
 ]
