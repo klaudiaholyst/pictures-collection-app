@@ -23,7 +23,7 @@ const NewPost = () => {
         <button className={styles.Button}>Anuluj</button>
       </Link>
       <div className={styles.Option}>
-        <label className={styles.Label} for="Form-URL">
+        <label className={styles.Label} htmlFor="Form-URL">
           URL
         </label>
         <input
@@ -35,7 +35,7 @@ const NewPost = () => {
         ></input>
       </div>
       <div className={styles.Option}>
-        <label className={styles.Label} for="Form-date">
+        <label className={styles.Label} htmlFor="Form-date">
           Data
         </label>
         <input
