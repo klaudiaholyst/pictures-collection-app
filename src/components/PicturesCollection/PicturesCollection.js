@@ -1,8 +1,28 @@
 import React from 'react';
-import './PicturesCollection.css';
+import { Link } from 'react-router-dom';
+import styles from './PicturesCollection.module.css';
 import Article from './Article/Article';
 
 const PicturesCollection = () => {
-return <main className="PicturesCollection"> <Article/> </main>;
-}
+  return (
+    <div>
+      <Link
+        to={{
+          pathname: '/new-post',
+          hash: 'submit',
+          search: '?quick-submit=true',
+        }}
+        style={{ textDecoration: 'none' }}
+        className={styles.Button}
+      >
+        Dodaj nowe
+      </Link>
+      <main className={styles.PicturesCollection}>
+        {' '}
+        <Article />{' '}
+      </main>
+      ;
+    </div>
+  );
+};
 export default PicturesCollection;
