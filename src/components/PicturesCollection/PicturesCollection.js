@@ -8,9 +8,7 @@ const PicturesCollection = () => {
     <div>
       <Link
         to={{
-          pathname: '/new-post',
-          hash: 'submit',
-          search: '?quick-submit=true',
+          pathname: '/new-post'
         }}
         style={{ textDecoration: 'none' }}
         className={styles.Button}

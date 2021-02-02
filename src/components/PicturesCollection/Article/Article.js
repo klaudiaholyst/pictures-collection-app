@@ -15,7 +15,6 @@ const Article = () => {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        console.log(responseData);
         setData(responseData);
       });
   };
@@ -28,9 +27,8 @@ const Article = () => {
         data.length > 0 &&
         data.map((item) => {
           return (
-            <article className="Article">
+            <article className="Article" key={item.ID}>
               <img className="Picture" src={item.Image} alt={item.Name} />
-              <p>{item.Date}</p>
               <p className="P">Miejsce wykonania: {item.Place}</p>
               <p className="P">Data: {item.Date}</p>
               <p className="P">Tagi: {item.Tags}</p>
