@@ -1,14 +1,17 @@
 import React from 'react';
+
 import { Link } from 'react-router-dom';
-import styles from './PicturesCollection.module.css';
+
 import Article from './Article/Article';
+
+import styles from './PicturesCollection.module.css';
 
 const PicturesCollection = () => {
   return (
     <div>
       <Link
         to={{
-          pathname: '/new-post'
+          pathname: '/new-post',
         }}
         style={{ textDecoration: 'none' }}
         className={styles.Button}
