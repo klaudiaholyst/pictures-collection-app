@@ -27,11 +27,11 @@ const Article = () => {
     data.length > 0 &&
     data.map((item) => {
       return (
-        <article className="Article" key={item.ID}>
-          <img className="Picture" src={item.Image} alt={item.Name} />
-          <p className="P">Miejsce wykonania: {item.Place}</p>
-          <p className="P">Data: {item.Date}</p>
-          <p className="P">Tagi: {item.Tags}</p>
+        <article className="Article" key={item.id}>
+          <img className="Picture" src={item.url} alt={item.name} />
+          <p className="P">Miejsce wykonania: {item.place}</p>
+          <p className="P">Data: {item.date}</p>
+          <p className="P">Tagi: {item.tags}</p>
           <img src={heart} className="Heart" alt="heart" />
         </article>
       );
