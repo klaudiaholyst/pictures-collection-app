@@ -19,10 +19,8 @@ const PicturesCollection = () => {
         Dodaj nowe
       </Link>
       <main className={styles.PicturesCollection}>
-        {' '}
-        <Article />{' '}
+        <Article />
       </main>
-      ;
     </div>
   );
 };
