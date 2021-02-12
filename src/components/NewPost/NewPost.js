@@ -6,16 +6,25 @@ import styles from './NewPost.module.css';
 
 const NewPost = () => {
   const [inputState, setInputState] = useState({
-    id: '',
+    id: new Date().getTime(),
     name: '',
     url: '',
     date: '',
     place: '',
     tags: '',
   });
+
   const submitHandler = (event) => {
     event.preventDefault();
     console.log(inputState);
+  };
+
+  const newValueHandler = (event) => {
+    const newValue = event.target.value;
+    setInputState((prevInputState) => ({
+      ...prevInputState,
+      [event.target.name]: newValue,
+    }));
   };
   return (
     <form className={styles.Form} onSubmit={submitHandler}>
@@ -36,17 +45,7 @@ const NewPost = () => {
           name="name"
           id="name"
           value={inputState.name}
-          onChange={(event) => {
-            const newValue = event.target.value;
-            setInputState({
-              id: inputState.id,
-              name: newValue,
-              url: inputState.url,
-              date: inputState.date,
-              place: inputState.place,
-              tags: inputState.tags,
-            });
-          }}
+          onChange={newValueHandler}
           required
         ></input>
       </div>
@@ -59,17 +58,7 @@ const NewPost = () => {
           type="text"
           name="url"
           id="url"
-          onChange={(event) => {
-            const newValue = event.target.value;
-            setInputState({
-              id: inputState.id,
-              name: inputState.name,
-              url: newValue,
-              date: inputState.date,
-              place: inputState.place,
-              tags: inputState.tags,
-            });
-          }}
+          onChange={newValueHandler}
           required
           value={inputState.url}
         ></input>
@@ -85,17 +74,7 @@ const NewPost = () => {
           id="date"
           placeholder=""
           required
-          onChange={(event) => {
-            const newValue = event.target.value;
-            setInputState({
-              id: inputState.id,
-              name: inputState.name,
-              url: inputState.url,
-              date: newValue,
-              place: inputState.place,
-              tags: inputState.tags,
-            });
-          }}
+          onChange={newValueHandler}
           value={inputState.date}
         ></input>
       </div>
@@ -108,17 +87,7 @@ const NewPost = () => {
           type="text"
           name="place"
           id="place"
-          onChange={(event) => {
-            const newValue = event.target.value;
-            setInputState({
-              id: inputState.id,
-              name: inputState.name,
-              url: inputState.url,
-              date: inputState.date,
-              place: newValue,
-              tags: inputState.tags,
-            });
-          }}
+          onChange={newValueHandler}
           required
           value={inputState.place}
         ></input>
@@ -133,17 +102,7 @@ const NewPost = () => {
           name="tags"
           id="tags"
           required
-          onChange={(event) => {
-            const newValue = event.target.value;
-            setInputState({
-              id: inputState.id,
-              name: inputState.name,
-              url: inputState.url,
-              date: inputState.date,
-              place: inputState.place,
-              tags: newValue,
-            });
-          }}
+          onChange={newValueHandler}
           value={inputState.tags}
         ></input>
       </div>

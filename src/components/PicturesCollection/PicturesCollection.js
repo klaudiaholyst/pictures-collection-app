@@ -10,17 +10,14 @@ const PicturesCollection = () => {
   return (
     <div>
       <Link
-        to={{
-          pathname: '/new-post',
-        }}
+        to='/new-post'
         style={{ textDecoration: 'none' }}
         className={styles.Button}
       >
         Dodaj nowe
       </Link>
       <main className={styles.PicturesCollection}>
-        {' '}
-        <Article />{' '}
+        <Article />
       </main>
       ;
     </div>
