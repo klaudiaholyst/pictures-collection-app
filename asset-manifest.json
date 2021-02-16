@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/pictures-collection-app/static/css/main.45b6c26a.chunk.css",
+    "main.js": "/pictures-collection-app/static/js/main.c1726198.chunk.js",
+    "main.js.map": "/pictures-collection-app/static/js/main.c1726198.chunk.js.map",
+    "runtime-main.js": "/pictures-collection-app/static/js/runtime-main.0bedee3e.js",
+    "runtime-main.js.map": "/pictures-collection-app/static/js/runtime-main.0bedee3e.js.map",
+    "static/js/2.a1c59419.chunk.js": "/pictures-collection-app/static/js/2.a1c59419.chunk.js",
+    "static/js/2.a1c59419.chunk.js.map": "/pictures-collection-app/static/js/2.a1c59419.chunk.js.map",
+    "static/js/3.03452e8c.chunk.js": "/pictures-collection-app/static/js/3.03452e8c.chunk.js",
+    "static/js/3.03452e8c.chunk.js.map": "/pictures-collection-app/static/js/3.03452e8c.chunk.js.map",
+    "index.html": "/pictures-collection-app/index.html",
+    "static/css/main.45b6c26a.chunk.css.map": "/pictures-collection-app/static/css/main.45b6c26a.chunk.css.map",
+    "static/js/2.a1c59419.chunk.js.LICENSE.txt": "/pictures-collection-app/static/js/2.a1c59419.chunk.js.LICENSE.txt",
+    "static/media/heart-solid.7857d8ab.svg": "/pictures-collection-app/static/media/heart-solid.7857d8ab.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0bedee3e.js",
+    "static/js/2.a1c59419.chunk.js",
+    "static/css/main.45b6c26a.chunk.css",
+    "static/js/main.c1726198.chunk.js"
+  ]
+}
