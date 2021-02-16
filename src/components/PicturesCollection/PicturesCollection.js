@@ -10,9 +10,7 @@ const PicturesCollection = () => {
   return (
     <div>
       <Link
-        to={{
-          pathname: '/new-post',
-        }}
+        to='/new-post'
         style={{ textDecoration: 'none' }}
         className={styles.Button}
       >
