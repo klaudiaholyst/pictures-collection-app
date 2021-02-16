@@ -19,7 +19,6 @@ const PicturesCollection = () => {
       <main className={styles.PicturesCollection}>
         <Article />
       </main>
-      ;
     </div>
   );
 };
