@@ -19,7 +19,15 @@ const NewPost = () => {
   const submitHandler = (event) => {
     event.preventDefault();
     picturesData.push(inputState);
-    console.log(inputState, picturesData);
+    alert('Zdjęcie zostało dodane.');
+    setInputState(() => ({
+      id: '',
+      name: '',
+      url: '',
+      date: '',
+      place: '',
+      tags: '',
+    }));
   };
   const newValueHandler = (event) => {
     const newValue = event.target.value;
