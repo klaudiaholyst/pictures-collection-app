@@ -1,22 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { Link } from 'react-router-dom';
 
 import styles from './NewPost.module.css';
+import DataContext from '../../context/DataContext';
 
 const NewPost = () => {
-  const [inputState, setInputState] = useState({
+  
+  const picturesData = useContext(DataContext);
+
+  const initialState = {
     id: new Date().getTime(),
     name: '',
     url: '',
     date: '',
     place: '',
     tags: '',
-  });
+  };
+
+  const [inputState, setInputState] = useState(initialState);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(inputState);
+    picturesData.push(inputState);
+    alert('Zdjęcie zostało dodane.');
+    setInputState(() => initialState);
   };
 
   const newValueHandler = (event) => {
@@ -26,12 +34,12 @@ const NewPost = () => {
       [event.target.name]: newValue,
     }));
   };
+
   return (
     <form className={styles.Form} onSubmit={submitHandler}>
       <button className={styles.Button} type="submit">
         Zapisz
       </button>
-
       <Link to="/">
         <button className={styles.Button}>Anuluj</button>
       </Link>
