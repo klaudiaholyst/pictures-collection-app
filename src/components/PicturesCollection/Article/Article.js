@@ -1,31 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 
 import './Article.css';
 
 import heart from '../../../assets/svg/heart-solid.svg';
 
-const Article = () => {
-  const [data, setData] = useState([]);
-
-  const getData = () => {
-    fetch('data.json', {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((responseData) => {
-        setData(responseData);
-      });
-  };
-  useEffect(() => {
-    getData();
-  }, []);
+const Article = (props) => {
   return (
-    data &&
-    data.length > 0 &&
-    data.map((item) => {
+    props.posts.map((item) => {
       return (
         <article className="Article" key={item.id}>
           <img className="Picture" src={item.url} alt={item.name} />
@@ -39,4 +20,10 @@ const Article = () => {
   );
 };
 
-export default Article;
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts
+  }
+}
+
+export default connect(mapStateToProps)(Article);

@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
 import styles from './NewPost.module.css';
 
-const NewPost = () => {
-  const [inputState, setInputState] = useState({
+const NewPost = (props) => {
+  const initialState = {
     id: new Date().getTime(),
     name: '',
     url: '',
     date: '',
     place: '',
     tags: '',
-  });
+  };
+
+  const [inputState, setInputState] = useState(initialState);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(inputState);
+    props.onPostAdded(inputState);
+    setInputState(() => initialState);
   };
 
   const newValueHandler = (event) => {
@@ -26,6 +30,7 @@ const NewPost = () => {
       [event.target.name]: newValue,
     }));
   };
+
   return (
     <form className={styles.Form} onSubmit={submitHandler}>
       <button className={styles.Button} type="submit">
@@ -110,4 +115,13 @@ const NewPost = () => {
   );
 };
 
-export default NewPost;
+const mapDispatchToProps = dispatch => {
+  return {
+    onPostAdded: (inputState) => dispatch({
+      type: 'ADD_POST',
+      payload: inputState
+    })
+  }
+}
+
+export default connect(null, mapDispatchToProps)(NewPost);
