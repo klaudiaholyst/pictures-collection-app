@@ -22,10 +22,9 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: {
-            const content = action.payload;
             return {
                 ...state,
-                posts: [...state.posts, content]
+                posts: [...state.posts, action.payload]
             }
         }
         default:
