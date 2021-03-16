@@ -20,6 +20,7 @@ const Article = (props) => {
   );
 };
 
+
 const mapStateToProps = (state) => {
   return {
     posts: state.posts

@@ -1,23 +1,7 @@
-import { ADD_POST } from './actionTypes';
+import { ADD_POST, FETCH_POSTS } from './actionTypes';
 
 const initialState = {
-    posts: [{
-        id: "001",
-        name: "Road by the sea",
-        url: "https://cdn.pixabay.com/photo/2021/01/10/12/00/road-5904909_1280.jpg",
-        date: "26.01.2021",
-        place: "XYZ",
-        tags: "#zachódsłońca #krajobraz"
-    },
-    {
-        id: "002",
-        name: "Road by the sea",
-        url: "https://cdn.pixabay.com/photo/2021/01/10/12/00/road-5904909_1280.jpg",
-        date: "27.01.2021",
-        place: "ZYX",
-        tags: "#zachódsłońca"
-    }
-    ]
+    posts: []
 }
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -25,6 +9,12 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 posts: [...state.posts, action.payload]
+            }
+        }
+        case FETCH_POSTS: {
+            return {
+                ...state,
+                posts: action.payload
             }
         }
         default:
