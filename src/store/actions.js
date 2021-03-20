@@ -1,6 +1,6 @@
 import { ADD_POST, FETCH_POSTS } from './actionTypes';
 
-import axios from 'axios';
+import axios from '../axios-posts';
 
 export const addPost = content => ({
     type: ADD_POST,
@@ -8,7 +8,9 @@ export const addPost = content => ({
 });
 
 export const fetchPosts = () => async dispatch => {
-    const response = await axios.create({ baseURL: 'data.json' }).get().then(res => res.data);
+    const response = await axios.get('https://react-pictures-app-default-rtdb.firebaseio.com/posts.json')
+        .then(res => Object.values(res.data))
+        .catch(error => console.log(error));
 
     dispatch({
         type: FETCH_POSTS,
