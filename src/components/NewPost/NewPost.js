@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import styles from './NewPost.module.css';
-import axios from '../../axios-posts';
+import axiosInstance from '../../axios-posts';
 
 const NewPost = (props) => {
   const initialState = {
@@ -20,11 +20,17 @@ const NewPost = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    axios.post('/posts.json', inputState)
-      .then(response => console.log(response))
-      .catch(error => console.log(error));
-    props.onPostAdded(inputState);
-    setInputState(() => initialState);
+    axiosInstance.post('/posts.json', inputState)
+      .then(response => {
+        console.log(response);
+        props.onPostAdded(inputState);
+        setInputState(() => initialState)
+      })
+      .catch(error => {
+        console.log(error);
+        alert(`${error}. Coś poszło nie tak. Spróbuj jeszcze raz.`)
+      });
+    ;
   };
 
   const newValueHandler = (event) => {
