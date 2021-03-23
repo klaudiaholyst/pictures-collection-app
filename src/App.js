@@ -1,3 +1,7 @@
+import { useEffect } from 'react';
+
+import { connect } from 'react-redux';
+
 import { Route, Switch } from 'react-router-dom';
 
 import './App.css';
@@ -5,8 +9,13 @@ import './App.css';
 import Header from './components/Header/Header';
 import PicturesCollection from './components/PicturesCollection/PicturesCollection';
 import NewPost from './components/NewPost/NewPost';
+import { fetchPosts } from './store/actions';
 
-function App() {
+
+function App(props) {
+  useEffect(() => {
+    props.fetchPosts();
+  }, []);
   return (
     <div className="App">
       <Header />
@@ -18,4 +27,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(null, { fetchPosts })(App);;
