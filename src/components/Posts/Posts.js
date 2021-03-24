@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
-import './Article.css';
+import './Posts.css';
 
-import heart from '../../../assets/svg/heart-solid.svg';
+import heart from '../../assets/svg/heart-solid.svg';
 
-const Article = (props) => {
+const Posts = (props) => {
   return (
     props.posts.map((item) => {
       return (
@@ -27,4 +27,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Article);
+export default connect(mapStateToProps)(Posts);

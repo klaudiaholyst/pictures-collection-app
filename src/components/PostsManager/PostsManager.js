@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import Article from './Article/Article';
+import Posts from '../Posts/Posts';
 
-import styles from './PicturesCollection.module.css';
+import styles from './PostsManager.module.css';
 
-const PicturesCollection = () => {
+const PostsManager = () => {
   return (
     <div>
       <Link
@@ -16,10 +16,10 @@ const PicturesCollection = () => {
       >
         Dodaj nowe
       </Link>
-      <main className={styles.PicturesCollection}>
-        <Article />
+      <main className={styles.PostsManager}>
+        <Posts />
       </main>
     </div>
   );
 };
-export default PicturesCollection;
+export default PostsManager;

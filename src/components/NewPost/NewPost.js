@@ -22,7 +22,6 @@ const NewPost = (props) => {
     event.preventDefault();
     axiosInstance.post('/posts.json', inputState)
       .then(response => {
-        console.log(response);
         props.onPostAdded(inputState);
         setInputState(() => initialState)
       })
