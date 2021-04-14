@@ -1,2 +1,2 @@
-export const ADD_POST = 'ADD_POST';
-export const FETCH_POSTS = 'FETCH_POSTS';
+export const ADD_PHOTO = 'ADD_PHOTO';
+export const FETCH_PHOTOS = 'FETCH_PHOTOS';

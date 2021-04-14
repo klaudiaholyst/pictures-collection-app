@@ -5,7 +5,7 @@ import styles from './Header.module.css';
 const Header = () => {
   return (
     <header className={styles.Header}>
-      <h1 className="Title">Mój Album</h1>
+      <h1 className="Title">My photo album</h1>
     </header>
   );
 };

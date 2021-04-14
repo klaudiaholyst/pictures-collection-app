@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-
 import { Link } from 'react-router-dom';
 
-import styles from './NewPost.module.css';
-import axiosInstance from '../../axios-posts';
+import styles from './NewPhoto.module.css';
+import axiosInstance from '../../axios-photos';
 
-const NewPost = (props) => {
+const NewPhoto = (props) => {
   const initialState = {
     id: new Date().getTime(),
     name: '',
@@ -43,7 +42,7 @@ const NewPost = (props) => {
   return (
     <form className={styles.Form} onSubmit={submitHandler}>
       <button className={styles.Button} type="submit">
-        Zapisz
+        Save
       </button>
 
       <Link to="/">
@@ -51,7 +50,7 @@ const NewPost = (props) => {
       </Link>
       <div className={styles.Option}>
         <label className={styles.Label} htmlFor="name">
-          Nazwa
+          Name
         </label>
         <input
           className={styles.Input}
@@ -79,7 +78,7 @@ const NewPost = (props) => {
       </div>
       <div className={styles.Option}>
         <label className={styles.Label} htmlFor="date">
-          Data
+          Date
         </label>
         <input
           className={styles.Input}
@@ -94,7 +93,7 @@ const NewPost = (props) => {
       </div>
       <div className={styles.Option}>
         <label className={styles.Label} htmlFor="place">
-          Miejsce
+          Place
         </label>
         <input
           className={styles.Input}
@@ -108,7 +107,7 @@ const NewPost = (props) => {
       </div>
       <div className={styles.Option}>
         <label className={styles.Label} htmlFor="tags">
-          Tagi
+          Tags
         </label>
         <input
           className={styles.Input}
@@ -127,10 +126,10 @@ const NewPost = (props) => {
 const mapDispatchToProps = dispatch => {
   return {
     onPostAdded: (inputState) => dispatch({
-      type: 'ADD_POST',
+      type: 'ADD_PHOTO',
       payload: inputState
     })
   }
 }
 
-export default connect(null, mapDispatchToProps)(NewPost);
+export default connect(null, mapDispatchToProps)(NewPhoto);
