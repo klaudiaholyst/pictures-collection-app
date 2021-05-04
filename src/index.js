@@ -10,6 +10,7 @@ import reportWebVitals from './reportWebVitals';
 import reducer from './store/reducer';
 
 import './index.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const store = compose(applyMiddleware(thunk),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())(createStore)(reducer);
