@@ -7,19 +7,17 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import PhotosList from './components/PhotosList/PhotosList';
 import NewPhoto from './components/NewPhoto/NewPhoto';
-import Signup from './components/Signup/Signup';
-import Login from './components/Login/Login';
+import Signup from './components/authentication/Signup'
+import Login from './components/authentication/Login';
 import Dashboard from './components/Dashboard/Dashboard';
-import UpdateProfile from './components/UpdateProfile/UpdateProfile';
-import PrivateRoute from './components/PrivateRoute';
+import UpdateProfile from './components/authentication/UpdateProfile';
+import PrivateRoute from './components/authentication/PrivateRoute';
 import { AuthProvider } from './contexts/AuthContext';
+import ForgotPassword from './components/authentication/ForgotPassword';
 
 import { fetchPhotos } from './store/actions';
 
 import './App.css';
-import { Container } from "react-bootstrap";
-import ForgotPassword from './components/ForgotPassword/ForgotPassword';
-
 
 function App(props) {
   useEffect(() => {

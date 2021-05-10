@@ -10,6 +10,7 @@ import styles from './PhotosList.module.css';
 
 const PhotosList = () => {
   const { files } = useFile()
+  console.log(files)
   return (
     <div>
 
@@ -32,9 +33,6 @@ const PhotosList = () => {
         Add new
       </Link>
       <AddFileButton />
-
-
-
 
       <main className={styles.PhotosList}>
         <Photos />
