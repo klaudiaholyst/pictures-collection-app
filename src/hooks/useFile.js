@@ -6,7 +6,7 @@ const ACTIONS = {
     SET_FILES: "set-files"
 }
 
-function reducer(state, {type, payload}) {
+function reducer(state, { type, payload }) {
     switch (type) {
         case ACTIONS.SET_FILES:
             return {
@@ -16,10 +16,9 @@ function reducer(state, {type, payload}) {
         default:
             return state
     }
-
 }
 
-export function useFile(){
+export function useFile() {
     const [state, dispatch] = useReducer(reducer, {
         files: []
     })
@@ -28,14 +27,14 @@ export function useFile(){
 
     useEffect(() => {
         return database.files
-        .where("userId", "==", currentUser.uid)
-        .orderBy("createdAt")
-        .onSnapshot(snapshot => {
-            dispatch({
-                type: ACTIONS.SET_FILES,
-                payload: { files: snapshot.docs.map(database.formatDoc)},
-        })
-    })
+            .where("userId", "==", currentUser.uid)
+            .orderBy("createdAt")
+            .onSnapshot(snapshot => {
+                dispatch({
+                    type: ACTIONS.SET_FILES,
+                    payload: { files: snapshot.docs.map(database.formatDoc) },
+                })
+            })
     }, [currentUser])
 
     return state

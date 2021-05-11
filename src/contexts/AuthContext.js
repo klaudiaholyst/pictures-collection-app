@@ -27,11 +27,11 @@ export function AuthProvider({ children }) {
         return auth.sendPasswordResetEmail(email)
     }
 
-    function updateEmail(email){
+    function updateEmail(email) {
         return currentUser.updateEmail(email)
     }
 
-    function updatePassword(password){
+    function updatePassword(password) {
         return currentUser.updatePassword(password)
     }
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, Button, Container } from 'react-bootstrap'
+import { Alert, Card, Button, Container } from 'react-bootstrap'
 import { Link, useHistory } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 
@@ -21,6 +21,7 @@ export default function Dashboard() {
     return (
         <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
             <div className="w-100" style={{ maxWidth: '400px' }}>
+                {error && <Alert variant="danger">{error}</Alert>}
                 <Card>
                     <Card.Body>
                         <div className="w-100 text-center mt-2"></div>

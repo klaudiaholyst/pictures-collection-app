@@ -8,8 +8,6 @@ import { useAuth } from '../../contexts/AuthContext'
 import { storage, database } from '../../firebase'
 
 import styles from './NewPhoto.module.css';
-import axiosInstance from '../../axios-photos';
-import { Container } from 'bootstrap';
 import { ProgressBar } from 'react-bootstrap';
 
 const NewPhoto = (props) => {
@@ -48,13 +46,13 @@ const NewPhoto = (props) => {
         setUploadingFiles(prevUploadingFiles => {
           return prevUploadingFiles.map(uploadFile => {
             if (uploadFile.id === id) {
-              return { ...uploadFile, progress:progress}
+              return { ...uploadFile, progress: progress }
             }
             return uploadFile
           })
         })
 
-       },
+      },
       () => { },
       () => {
         uploadTask.snapshot.ref.getDownloadURL().then(url => {
@@ -69,8 +67,14 @@ const NewPhoto = (props) => {
             tags: inputState.tags,
 
           })
+          setInputState(() => initialState);
+          setSelectedFile(null);
         })
       })
+      .catch(error => {
+        console.log(error);
+        alert(`${error}. Coś poszło nie tak. Spróbuj jeszcze raz.`)
+      });
 
     // axiosInstance.post('/posts.json', inputState)
     //   .then(response => {
@@ -201,26 +205,6 @@ const NewPhoto = (props) => {
                 </div>
               </div>
             ))}
-           
-            {/* {uploadingFiles.map(file => (
-              <Container key={file.id}>
-                <Container.Header
-                  closeButton={file.error}
-                  className="text-truncate w-100 d-block">
-                  {file.name}
-                </Container.Header>
-                <Container.Body>
-                  <ProgressBar
-                    animated={!file.error}
-                    variant={file.error ? 'danger' : 'primary'}
-                    now={file.error ? 100 : file.progress * 100}
-                    label={
-                      file.error ? "Error" : `${Math.round(file.progress * 100)}%`
-                    }
-                  />
-                </Container.Body>
-              </Container>
-            ))} */}
           </div>, document.body
         )}
     </>

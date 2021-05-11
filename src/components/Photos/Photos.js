@@ -1,12 +1,15 @@
 import { connect } from 'react-redux';
 
+import {useFile} from '../../hooks/useFile'
+
 import './Photos.css';
 
 import heart from '../../assets/svg/heart-solid.svg';
 
 const Photos = (props) => {
+  const {files} = useFile()
   return (
-    props.photos.map((item) => {
+    files.map((item) => {
       return (
         <article className="Article" key={item.id}>
           <img className="Photo" src={item.url} alt={item.name} />
