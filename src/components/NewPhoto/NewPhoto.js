@@ -37,7 +37,7 @@ const NewPhoto = (props) => {
       ...prevUploadingFiles,
       { id: id, name: selectedFile.name, progress: 0, error: false }
     ])
-    const uploadTask = storage.ref(`files/${currentUser.uid}/${selectedFile.name}`)
+    const uploadTask = storage.ref(`files/${currentUser.uid}/${selectedFile.name}--${uuidV4()}`)
       .put(selectedFile)
 
     uploadTask.on('state_changed',
@@ -53,7 +53,10 @@ const NewPhoto = (props) => {
         })
 
       },
-      () => { },
+      (error) => {
+        console.log(error);
+        alert(`${error}. Something went wrong!`)
+      },
       () => {
         uploadTask.snapshot.ref.getDownloadURL().then(url => {
           console.log(url)
@@ -71,22 +74,7 @@ const NewPhoto = (props) => {
           setSelectedFile(null);
         })
       })
-      .catch(error => {
-        console.log(error);
-        alert(`${error}. Coś poszło nie tak. Spróbuj jeszcze raz.`)
-      });
-
-    // axiosInstance.post('/posts.json', inputState)
-    //   .then(response => {
-    //     props.onPostAdded(inputState);
-    //     setInputState(() => initialState);
-    //     setSelectedFile(null);
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //     alert(`${error}. Coś poszło nie tak. Spróbuj jeszcze raz.`)
-    //   });
-    ;
+      ;
   };
 
   const newValueHandler = (event) => {
