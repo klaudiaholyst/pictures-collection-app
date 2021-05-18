@@ -12,6 +12,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "firebase": "^8.4.2",
+    "firebase-tools": "^9.11.0",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "react": "^17.0.1",
