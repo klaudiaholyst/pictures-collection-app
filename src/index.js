@@ -14,8 +14,7 @@ import reducer from './store/reducer';
 import './index.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const store = compose(applyMiddleware(thunk),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())(createStore)(reducer);
+const store = compose(applyMiddleware(thunk))(createStore)(reducer);
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>

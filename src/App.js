@@ -26,7 +26,6 @@ function App(props) {
   return (
     <div className="App">
       <AuthProvider>
-
         <Header />
         <Switch>
           <PrivateRoute path="/profile" exact component={Dashboard} />
