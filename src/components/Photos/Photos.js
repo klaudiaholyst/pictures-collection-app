@@ -12,7 +12,7 @@ const Photos = (props) => {
     files.map((item) => {
       return (
         <article className="Article" key={item.id}>
-          <img className="Photo" src={item.url} alt={item.name} />
+          <div className="square"><img className="photo" src={item.url} alt={item.name} /></div>
           <p className="SingleLine">Place: {item.place}</p>
           <p className="SingleLine">Date: {item.date}</p>
           <p className="SingleLine">Tags: {item.tags}</p>

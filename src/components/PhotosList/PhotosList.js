@@ -1,21 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import { useHistory } from 'react-router-dom';
+
+import Button from '@material-ui/core/Button'
 
 import Photos from '../Photos/Photos';
 
 import styles from './PhotosList.module.css';
 
 const PhotosList = () => {
+  const history = useHistory()
   return (
-    <div>
-      <Link
-        to='/new-photo'
-        style={{ textDecoration: 'none' }}
-        className={styles.Button}
-      >
+    <div className={styles.box}>
+      <Button variant="contained" size="large" color="primary" onClick={() => {
+        history.push('/new-photo')
+      }} className={styles.Button} >
         Add new
-      </Link>
-
+      </Button>
       <main className={styles.PhotosList}>
         <Photos />
       </main>
