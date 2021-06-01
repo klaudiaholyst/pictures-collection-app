@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import ReactDOM from 'react-dom'
 import { v4 as uuidV4 } from 'uuid'
 
 import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 
@@ -45,11 +46,49 @@ const useStyles = makeStyles((theme) => ({
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
+    textAlign: 'left',
+    color: 'rgb(49, 49, 49)'
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-}));
+  option: {
+    margin: '30px 20px',
+    display: 'flex',
+    flexBasis: '200px',
+    alignContent: 'space-between',
+    width: '500px'
+  },
+  label: {
+    width: '200px',
+    lineHeight: '40px',
+    fontEeight: 'bold',
+    fontSize: '18px'
+  },
+  input: {
+    width: '200px',
+    padding: '10px',
+    border: '2px solid rgb(148, 147, 147)',
+    borderRadius: '5px'
+  },
+  button: {
+    display: 'inline-block',
+    margin: '20px auto 0 20px',
+    width: '120px',
+    height: '50px',
+    backgroundColor: 'royalblue',
+    color: 'white',
+    borderRadius: '4px',
+    border: 'none',
+    fontSize: '15px',
+    fontWeight: 'bold',
+    letterSpacing: '0.3px'
+  },
+  buttonCancel: {
+    backgroundColor: 'rgb(114 113 113)'
+  }
+}
+));
 
 
 const NewPhoto = (props) => {
@@ -73,13 +112,13 @@ const NewPhoto = (props) => {
   const [inputState, setInputState] = useState(initialState);
 
   const [uploadingFiles, setUploadingFiles] = useState([]);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log('uploading a photo with details')
 
     const id = uuidV4()
-
+    setSnackbarOpen(true);
     setUploadingFiles(prevUploadingFiles => [
       ...prevUploadingFiles,
       { id: id, name: selectedFile.name, progress: 0, error: false }
@@ -125,12 +164,18 @@ const NewPhoto = (props) => {
   };
 
   const newValueHandler = (event) => {
-    console.log(event.target)
     const newValue = event.target.value;
     setInputState((prevInputState) => ({
       ...prevInputState,
       [event.target.name]: newValue,
     }));
+  };
+
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setSnackbarOpen(false);
   };
 
   return (
@@ -146,12 +191,12 @@ const NewPhoto = (props) => {
               className={classes.uploadButton}
               variant="contained"
               component="label"
+              htmlFor="url"
             >
               Choose a photo
                 <input
                 type="file"
                 hidden
-                label="URL"
                 name="url"
                 id="url"
                 onChange={(e) => setSelectedFile(e.target.files[0])}
@@ -179,8 +224,8 @@ const NewPhoto = (props) => {
               id="date"
               label="Date of taking the photo"
               type="date"
-              name= "date"
-              value={inputState.date} 
+              name="date"
+              value={inputState.date}
               InputLabelProps={{
                 shrink: true,
               }}
@@ -232,34 +277,25 @@ const NewPhoto = (props) => {
         </div>
       </Container>
       {uploadingFiles.length > 0 &&
-        ReactDOM.createPortal(
-          <div style={{
-            position: 'absolute',
-            bottom: '1rem',
-            right: '1rem',
-            maxWidth: '250px'
-          }}>
+        <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
+          <MuiAlert elevation={6} variant="filled" onClose={handleSnackbarClose} severity="info">
             {uploadingFiles.map(file => (
-              <div key={file.id}>
-                <p
-                  closeButton={file.error}
-                  className="text-truncate w-100 d-block">
+              <div>
+                <Typography
+                  closeButton={file.error}>
                   {file.name}
-                </p>
-                <div>
-                  <ProgressBar
-                    animated={!file.error}
-                    variant={file.error ? 'danger' : 'primary'}
-                    now={file.error ? 100 : file.progress * 100}
-                    label={
-                      file.error ? "Error" : `${Math.round(file.progress * 100)}%`
-                    }
-                  />
-                </div>
+                </Typography><ProgressBar
+                  animated={!file.error}
+                  variant={file.error ? 'danger' : 'primary'}
+                  now={file.error ? 100 : file.progress * 100}
+                  label={
+                    file.error ? "Error" : `${Math.round(file.progress * 100)}%`
+                  }
+                />
               </div>
             ))}
-          </div>, document.body
-        )}
+          </MuiAlert>
+        </Snackbar>}
     </>
   );
 };

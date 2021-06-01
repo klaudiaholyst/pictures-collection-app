@@ -68,7 +68,6 @@ export default function ForgotPassword() {
         } catch {
             setError('Failed to reset password')
         }
-
         setLoading(false)
     }
     return (
@@ -82,6 +81,8 @@ export default function ForgotPassword() {
                     Password Reset
         </Typography>
                 {error && <Alert severity="error">{error}</Alert>}
+                {message && <Alert severity="success">{message}</Alert>}
+
                 <form className={classes.form} onSubmit={handleSubmit}>
                     <TextField
                         type="email"

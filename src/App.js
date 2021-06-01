@@ -9,7 +9,7 @@ import PhotosList from './components/PhotosList/PhotosList';
 import NewPhoto from './components/NewPhoto/NewPhoto';
 import Signup from './components/authentication/Signup'
 import Login from './components/authentication/Login';
-import Dashboard from './components/Dashboard/Dashboard';
+import ProfileInfo from './components/ProfileInfo/ProfileInfo';
 import UpdateProfile from './components/authentication/UpdateProfile';
 import PrivateRoute from './components/authentication/PrivateRoute';
 import { AuthProvider } from './contexts/AuthContext';
@@ -28,7 +28,7 @@ function App(props) {
       <AuthProvider>
         <Header />
         <Switch>
-          <PrivateRoute path="/profile" exact component={Dashboard} />
+          <PrivateRoute path="/profile" exact component={ProfileInfo} />
           <PrivateRoute path="/update-profile" exact component={UpdateProfile} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
