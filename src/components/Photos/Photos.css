@@ -12,16 +12,14 @@
     color: rgb(70, 70, 70);
 }
 
-.Picture {
+.Photo {
     width: 100%;
     margin-bottom: 10px;
-
 }
 
-.P {
+.SingleLine {
     margin: 2px 0;
     letter-spacing: 0.5px;
-
 }
 
 .Heart {
@@ -29,5 +27,4 @@
     width: 30px;
     color: red;
     margin-bottom: 0;
-
 }

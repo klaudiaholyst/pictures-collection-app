@@ -1,19 +1,19 @@
-import { ADD_POST, FETCH_POSTS } from './actionTypes';
+import { ADD_PHOTO, FETCH_PHOTOS } from './actionTypes';
 
-import axiosInstance from '../axios-posts';
+import axiosInstance from '../axios-photos';
 
-export const addPost = content => ({
-    type: ADD_POST,
+export const addPhoto = content => ({
+    type: ADD_PHOTO,
     payload: content
 });
 
-export const fetchPosts = () => async dispatch => {
+export const fetchPhotos = () => async dispatch => {
     const response = await axiosInstance.get('/posts.json')
         .then(res => Object.values(res.data))
         .catch(error => console.log(error));
 
     dispatch({
-        type: FETCH_POSTS,
+        type: FETCH_PHOTOS,
         payload: response
     })
 };

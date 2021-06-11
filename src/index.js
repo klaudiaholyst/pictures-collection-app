@@ -5,13 +5,16 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
-import './index.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import reducer from './store/reducer';
 
-const store = compose(applyMiddleware(thunk),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())(createStore)(reducer);
+import './index.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+
+const store = compose(applyMiddleware(thunk))(createStore)(reducer);
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>

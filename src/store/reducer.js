@@ -1,20 +1,20 @@
-import { ADD_POST, FETCH_POSTS } from './actionTypes';
+import { ADD_PHOTO, FETCH_PHOTOS } from './actionTypes';
 
 const initialState = {
-    posts: []
+    photos: []
 }
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_POST: {
+        case ADD_PHOTO: {
             return {
                 ...state,
-                posts: [...state.posts, action.payload]
+                photos: [...state.photos, action.payload]
             }
         }
-        case FETCH_POSTS: {
+        case FETCH_PHOTOS: {
             return {
                 ...state,
-                posts: action.payload
+                photos: action.payload
             }
         }
         default:
