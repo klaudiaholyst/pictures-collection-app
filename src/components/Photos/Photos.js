@@ -1,12 +1,10 @@
-import { connect } from 'react-redux';
-
 import {useFile} from '../../hooks/useFile'
 
 import styles from './Photos.module.css';
 
 import heart from '../../assets/svg/heart-solid.svg';
 
-const Photos = (props) => {
+const Photos = () => {
   const {files} = useFile()
   return (
     files.map((item) => {
@@ -23,11 +21,4 @@ const Photos = (props) => {
   );
 };
 
-
-const mapStateToProps = (state) => {
-  return {
-    photos: state.photos
-  }
-}
-
-export default connect(mapStateToProps)(Photos);
+export default Photos;

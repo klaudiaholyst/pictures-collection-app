@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+
 import { useHistory } from 'react-router-dom';
 import { v4 as uuidV4 } from 'uuid'
 
@@ -91,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
 ));
 
 
-const NewPhoto = (props) => {
+const NewPhoto = () => {
 
   const classes = useStyles();
 
@@ -299,13 +299,4 @@ const NewPhoto = (props) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onPostAdded: (inputState) => dispatch({
-      type: 'ADD_PHOTO',
-      payload: inputState
-    })
-  }
-}
-
-export default connect(null, mapDispatchToProps)(NewPhoto);
+export default NewPhoto;
