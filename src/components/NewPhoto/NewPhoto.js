@@ -280,9 +280,8 @@ const NewPhoto = (props) => {
         <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
           <MuiAlert elevation={6} variant="filled" onClose={handleSnackbarClose} severity="info">
             {uploadingFiles.map(file => (
-              <div>
-                <Typography
-                  closeButton={file.error}>
+              <div key={file.id}>
+                <Typography>
                   {file.name}
                 </Typography><ProgressBar
                   animated={!file.error}
