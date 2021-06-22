@@ -12,9 +12,7 @@ import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
 
 import 'date-fns';
 
@@ -23,77 +21,9 @@ import { storage, database } from '../../firebase'
 
 import { ProgressBar } from 'react-bootstrap';
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    padding: '20px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    backgroundColor: 'aliceblue',
-    boxShadow: '0px 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%)'
-  },
-  uploadBox: {
-    marginTop: '20px',
-    width: '100%',
-    display: 'inline-flex',
-    gap: '16px',
-    alignItems: 'baseline'
-  },
-  uploadButton: {
-    whiteSpace: 'nowrap'
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-    textAlign: 'left',
-    color: 'rgb(49, 49, 49)'
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-  option: {
-    margin: '30px 20px',
-    display: 'flex',
-    flexBasis: '200px',
-    alignContent: 'space-between',
-    width: '500px'
-  },
-  label: {
-    width: '200px',
-    lineHeight: '40px',
-    fontEeight: 'bold',
-    fontSize: '18px'
-  },
-  input: {
-    width: '200px',
-    padding: '10px',
-    border: '2px solid rgb(148, 147, 147)',
-    borderRadius: '5px'
-  },
-  button: {
-    display: 'inline-block',
-    margin: '20px auto 0 20px',
-    width: '120px',
-    height: '50px',
-    backgroundColor: 'royalblue',
-    color: 'white',
-    borderRadius: '4px',
-    border: 'none',
-    fontSize: '15px',
-    fontWeight: 'bold',
-    letterSpacing: '0.3px'
-  },
-  buttonCancel: {
-    backgroundColor: 'rgb(114 113 113)'
-  }
-}
-));
-
+import styles from './NewPhoto.module.css';
 
 const NewPhoto = (props) => {
-
-  const classes = useStyles();
 
   const history = useHistory()
 
@@ -182,13 +112,13 @@ const NewPhoto = (props) => {
     <>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <div className={classes.paper}>
+        <div className={styles.paper}>
           <Typography component="h1" variant="h5">
             Add new photo
           </Typography>
-          <form className={classes.form} onSubmit={submitHandler}>
-            <div className={classes.uploadBox}><Button
-              className={classes.uploadButton}
+          <form className={styles.form} onSubmit={submitHandler}>
+            <div className={styles.uploadBox}><Button
+              className={styles.uploadButton}
               variant="contained"
               component="label"
               htmlFor="url"
@@ -259,7 +189,7 @@ const NewPhoto = (props) => {
               fullWidth
               variant="contained"
               color="primary"
-              className={classes.submit}
+              className={styles.submit}
             >
               Add
             </Button>

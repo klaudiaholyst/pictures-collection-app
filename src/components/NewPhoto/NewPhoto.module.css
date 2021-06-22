@@ -1,0 +1,65 @@
+.paper {
+      margin-top: 64px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: aliceblue;
+      box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 20%), 0 3px 4px 0 rgba(0, 0, 0, 14%), 0 1px 8px 0 rgba(0, 0, 0, 12%)
+    }
+
+.uploadBox {
+      margin-top: 20px;
+      width: 100%;
+      display: inline-flex;
+      gap: 16px;
+      align-items: baseline
+    }
+.uploadButton {
+      white-space: nowrap
+    }
+.form {
+      width: 100%;
+      margin-top: 8px;
+      text-align: left;
+      color: rgb(49, 49, 49)
+    }
+.submit {
+      margin: 24px 0 16px
+    }
+.option {
+      margin: 30px 20px;
+      display: flex;
+      flex-basis: 200px;
+      align-content: space-between;
+      width: 500px
+    }
+
+    .label {
+      width: 200px;
+      line-height: 40px;
+      font-weight: bold;
+      font-size: 18px
+    }
+    .input {
+      width: 200px;
+      padding: 10px;
+      border: 2px solid rgb(148, 147, 147);
+      border-radius: 5px
+    }
+    .button {
+      display: inline-block;
+      margin: 20px auto 0 20px;
+      width: 120px;
+      height: 50px;
+      background-color: royalblue;
+      color: white;
+      border-radius: 4px;
+      border: none;
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: 0.3px
+    }
+    .buttonCancel {
+      background-color: rgb(114, 113, 113)
+    }
