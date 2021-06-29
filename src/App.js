@@ -1,7 +1,3 @@
-import { useEffect } from 'react';
-
-import { connect } from 'react-redux';
-
 import { Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header/Header';
@@ -15,14 +11,9 @@ import PrivateRoute from './components/authentication/PrivateRoute';
 import { AuthProvider } from './contexts/AuthContext';
 import ForgotPassword from './components/authentication/ForgotPassword';
 
-import { fetchPhotos } from './store/actions';
-
 import './App.css';
 
-function App(props) {
-  useEffect(() => {
-    props.fetchPosts();
-  });
+function App() {
   return (
     <div className="App">
       <AuthProvider>
@@ -36,10 +27,9 @@ function App(props) {
           <PrivateRoute path="/" exact component={PhotosList} />
           <Route path="/new-photo" exact component={NewPhoto} />
         </Switch>
-
       </AuthProvider>
     </div>
   );
 }
 
-export default connect(null, { fetchPosts: fetchPhotos })(App);;
+export default App;
