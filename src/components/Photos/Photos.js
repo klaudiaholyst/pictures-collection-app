@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import {useFile} from '../../hooks/useFile'
 
-import './Photos.css';
+import styles from './Photos.module.css';
 
 import heart from '../../assets/svg/heart-solid.svg';
 
@@ -11,12 +11,12 @@ const Photos = (props) => {
   return (
     files.map((item) => {
       return (
-        <article className="Article" key={item.id}>
-          <img className="Photo" src={item.url} alt={item.name} />
-          <p className="SingleLine">Place: {item.place}</p>
-          <p className="SingleLine">Date: {item.date}</p>
-          <p className="SingleLine">Tags: {item.tags}</p>
-          <img src={heart} className="Heart" alt="heart" />
+        <article className={styles.Article} key={item.id}>
+          <div className={styles.square}><img className={styles.photo} src={item.url} alt={item.name} /></div>
+          <p className={styles.SingleLine}>Place: {item.place}</p>
+          <p className={styles.SingleLine}>Date: {item.date}</p>
+          <p className={styles.SingleLine}>Tags: {item.tags}</p>
+          <img src={heart} className={styles.Heart} alt="heart" />
         </article>
       );
     })

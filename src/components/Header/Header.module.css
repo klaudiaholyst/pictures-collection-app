@@ -1,15 +1,5 @@
-.Header {
-    margin-top: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    background-color: lightblue;
-}
-.Title {
-    margin:0;
-    color: rgb(46, 46, 46);
-}
-a{
-    width: 40px;
-    height: 40px;
+.title {
+    flex-grow: 1;
+    text-align: left;
+    cursor: pointer;
 }

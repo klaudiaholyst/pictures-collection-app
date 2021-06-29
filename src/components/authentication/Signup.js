@@ -1,9 +1,47 @@
 import React, { useRef, useState } from 'react'
-import { Form, Button, Card, Alert, Container } from 'react-bootstrap'
 import { useAuth } from '../../contexts/AuthContext';
-import { Link, useHistory } from 'react-router-dom';
+
+import { useHistory } from 'react-router-dom';
+
+import Alert from '@material-ui/lab/Alert';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+
+const useStyles = makeStyles((theme) => ({
+    paper: {
+        marginTop: theme.spacing(8),
+        padding: '20px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        backgroundColor: 'aliceblue',
+        boxShadow: '0px 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%)'
+    },
+    avatar: {
+        margin: theme.spacing(1),
+        backgroundColor: theme.palette.secondary.main,
+    },
+    form: {
+        width: '100%',
+        marginTop: theme.spacing(1),
+    },
+    submit: {
+        margin: theme.spacing(3, 0, 2),
+    },
+}));
+
 
 export default function Signup() {
+    const classes = useStyles();
+
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
@@ -30,32 +68,72 @@ export default function Signup() {
         setLoading(false)
     }
     return (
-        <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
-            <div className="w-100" style={{ maxWidth: '400px' }}>
-                <Card>
-                    <Card.Body>
-                        <div className="w-100 text-center mt-2"></div>
-                        <h2 className="text-center mb-4">Sign Up</h2>
-                        {error && <Alert variant="danger">{error}</Alert>}
-                        <Form className="text-left" onSubmit={handleSubmit}>
-                            <Form.Group id="email">
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control type="email" ref={emailRef} required></Form.Control>
-                            </Form.Group>
-                            <Form.Group id="password">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" ref={passwordRef} required></Form.Control>
-                            </Form.Group>
-                            <Form.Group id="password-confirm">
-                                <Form.Label>Password Confirmation</Form.Label>
-                                <Form.Control type="password" ref={passwordConfirmRef} required></Form.Control>
-                            </Form.Group>
-                            <Button disabled={loading} className="w-100 text-center mt-2" type="submit">Sign up</Button>
-                        </Form>
+        <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className={classes.paper}>
+                <Avatar className={classes.avatar}>
+                    <LockOutlinedIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                    Sign Up
+          </Typography>
+                {error && <Alert severity="error">{error}</Alert>}
+                <form className={classes.form} onSubmit={handleSubmit}>
+                    <TextField
+                        type="email"
+                        inputRef={emailRef}
+                        variant="outlined"
+                        margin="normal"
+                        fullWidth
+                        required
+                        id="email"
+                        label="Email Address"
+                        name="email"
+                        autoComplete="email"
+                        autoFocus
+                    />
+                    <TextField
+                        type="password"
+                        inputRef={passwordRef}
+                        variant="outlined"
+                        margin="normal"
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        id="password"
+                        required
+                    />
+                    <TextField
+                        type="password"
+                        inputRef={passwordConfirmRef}
+                        variant="outlined"
+                        margin="normal"
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        id="password-confirm"
+                        required
+                    />
+                    <Button
+                        disabled={loading}
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                    >
+                        Sign up
+            </Button>
 
-                    </Card.Body>
-                </Card>
-                <div className="w-100 text-center mt-2"> Already have an account? <Link to="/login">Log in</Link></div>
+                </form>
+                <Grid container>
+                    <Grid item xs>Already have an account? <Link onClick={() => {
+                        history.push('/login')
+                    }} variant="body2">
+                        Log in
+                </Link>
+                    </Grid>
+                </Grid>
             </div>
         </Container>
     )
