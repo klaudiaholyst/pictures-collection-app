@@ -11,9 +11,10 @@ const Photos = () => {
       return (
         <article className={styles.Article} key={item.id}>
           <div className={styles.square}><img className={styles.photo} src={item.url} alt={item.name} /></div>
-          <p className={styles.SingleLine}>Place: {item.place}</p>
-          <p className={styles.SingleLine}>Date: {item.date}</p>
-          <p className={styles.SingleLine}>Tags: {item.tags}</p>
+          <p className={styles.SingleLine}><span className={styles.info}>Name: </span>{item.name}</p>
+          <p className={styles.SingleLine}><span className={styles.info}>Place: </span>{item.place}</p>
+          <p className={styles.SingleLine}><span className={styles.info}>Date: </span>{item.date}</p>
+          <p className={styles.SingleLine}><span className={styles.info}>Tags: </span>{item.tags}</p>
           <img src={heart} className={styles.Heart} alt="heart" />
         </article>
       );
