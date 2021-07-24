@@ -7,14 +7,13 @@ const ACTIONS = {
 }
 
 function reducer(state, { type, payload }) {
-    switch (type) {
-        case ACTIONS.SET_FILES:
-            return {
+    if (type === ACTIONS.SET_FILES){
+        return {
                 state,
                 files: payload.files
             }
-        default:
-            return state
+    } else {
+        return state
     }
 }
 
