@@ -26,7 +26,7 @@ npm start
 
 ```
 ## Live 📍
-
+https://auth-development-2a4ee.web.app/
 
 ## License 🔱
 Open source license.
