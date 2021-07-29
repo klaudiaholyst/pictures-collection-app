@@ -1,5 +1,3 @@
-## Pictures Collection App
-
 ## Project Overview 🎉
 App made to store own pictures with description (title, place, country and date of taking the picture. Styling is similar to Instagram. All data is stored on Firebase. User is able to create an account, login, edit password/email, add picture with description and logout.
 ## Technologies 🔧
