@@ -1,0 +1,22 @@
+.box{
+    margin:24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.PhotosList {
+    width:100%;
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+.Button {
+margin-bottom: 24px;
+text-transform: none;
+}
