@@ -5,7 +5,11 @@
     justify-content: flex-start;
     align-items: flex-start;
 }
-
+.topContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 .PhotosList {
     width:100%;
     margin-top: 24px;
@@ -19,4 +23,7 @@
 .Button {
 margin-bottom: 24px;
 text-transform: none;
+}
+.formControlLabel{
+    color: #646464;
 }
