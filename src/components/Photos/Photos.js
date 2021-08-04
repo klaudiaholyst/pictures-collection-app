@@ -35,11 +35,11 @@ const Photos = (props) => {
   if (props.onlyFavorite) {
     return (
       files.filter(item => item.favorite === true)
-        .map(item => <Article item={item} />)
+        .map(item => <Article key={item.id} item={item} />)
     );
   } else {
     return (
-      files.map((item) => <Article item={item} />)
+      files.map((item) => <Article key={item.id} item={item} />)
     )
   }
 };
