@@ -23,7 +23,7 @@ const PhotosList = () => {
       <div className={styles.topContainer}>
         <Button variant="contained" size="large" color="primary" onClick={() => {
           history.push('/new-photo')
-        }} className={styles.Button} >
+        }} >
           Add new
         </Button>
         <FormControlLabel
