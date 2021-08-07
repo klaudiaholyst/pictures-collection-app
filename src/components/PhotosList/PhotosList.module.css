@@ -5,6 +5,11 @@
     justify-content: flex-start;
     align-items: flex-start;
 }
+.topContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 
 .PhotosList {
     width:100%;
@@ -16,7 +21,12 @@
     column-gap: 20px;
 }
 
-.Button {
-margin-bottom: 24px;
-text-transform: none;
+.formControlLabel{
+    color: #646464;
+}
+
+@media (max-width:440px) {
+    .topContainer{
+        flex-direction: column;
+    }
 }

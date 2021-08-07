@@ -8,7 +8,7 @@ service cloud.firestore {
       function matchesUser(data){
       	return request.auth.uid == data.userId
       }
-      allow read: if authed() && matchesUser(resource.data)
+      allow read, write: if authed() && matchesUser(resource.data)
       allow create: if authed() && matchesUser(request.resource.data)
     }
   }
