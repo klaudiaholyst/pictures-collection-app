@@ -4,6 +4,7 @@ App made to store own pictures with description (title, place, country and date 
 If you don't want to register - login with these data:
 
 Email: sample@test.com
+
 Password: Test123
 
 The added pictures are saved on Firebase Storage.
